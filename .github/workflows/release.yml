@@ -1,0 +1,78 @@
+# Description
+# ===========
+# This workflow is triggered each time a milestone is closed
+# It builds the jar, generates release notes, pushes a new tag
+# and makes a draft release with these elements.
+---
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      draft:
+        description: 'Est-ce que la release doit être en brouillon?'
+        default: true
+        required: false
+        type: boolean
+      prerelease:
+        description: "Est-ce que c'est une pre-release?"
+        default: true
+        required: false
+        type: boolean
+      tag:
+        description: "Spécifier le tag git?"
+        required: true
+        type: string
+      maven_release_version:
+        description: "Spécifier la version de release? Conseil: Utiliser la même version que le tag"
+        required: true
+        type: string
+      maven_development_version:
+        description: "Spécifier la nouvelle version de développement après la release? Ex : X.X.X-SNAPSHOT"
+        required: true
+        type: string
+
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+    - name: Setup java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+    - name: Maven release prepare
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email catlab@cnes.fr
+        mvn -B release:prepare -DreleaseVersion="${{ inputs.maven_release_version }}" -DdevelopmentVersion="${{ inputs.maven_development_version }}" -DreleaseLabel="${{inputs.tag}}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Maven release perform
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email catlab@cnes.fr
+        mvn -B release:perform -Darguments="-Dmaven.javadoc.skip=true"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Set project values
+      run: |
+        echo "project=$(echo ${{ github.repository }} | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+    - name: Create GitHub Release
+      uses: ncipollo/release-action@v1.14.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        artifacts: "icode-app/target/icode-*.zip,icode-ide/fr.cnes.icode.repository/target/products/icode-ide.product-*.zip,icode-ide/fr.cnes.icode.repository/target/fr.cnes.icode.repository-*.zip"
+        tag: ${{ env.tag }}
+        name: ${{ env.project }} ${{ env.tag }}
+        draft: ${{inputs.draft}}
+        generateReleaseNotes: true
+        prerelease: ${{inputs.prerelease}}
+        token: ${{ secrets.GITHUB_TOKEN }}
