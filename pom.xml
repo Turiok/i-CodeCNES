@@ -39,14 +39,14 @@
     </organization>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/cnescatlab/i-CodeCNES/issues</url>
+        <url>https://github.com/Turiok/i-CodeCNES/issues</url>
     </issueManagement>
     <ciManagement>
         <system>GitHub Actions</system>
-        <url>https://github.com/cnescatlab/i-CodeCNES/actions</url>
+        <url>https://github.com/Turiok/i-CodeCNES/actions</url>
     </ciManagement>
     <scm>
-        <url>https://github.com/cnescatlab/i-CodeCNES</url>
+        <url>https://github.com/Turiok/i-CodeCNES</url>
     </scm>
 
     <licenses>
@@ -61,7 +61,7 @@
         <repository>
             <id>github</id>
             <name>GitHub CNES CatLab Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/cnescatlab/i-CodeCNES</url>
+            <url>https://maven.pkg.github.com/Turiok/i-CodeCNES</url>
         </repository>
     </distributionManagement>
 
