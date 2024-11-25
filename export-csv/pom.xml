@@ -7,11 +7,10 @@
 	<parent>
 		<groupId>fr.cnes.icode</groupId>
 		<artifactId>parent</artifactId>
-		<version>dev</version>
+		<version>5.1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>export-csv</artifactId>
-	<version>${icode.version}</version>
 	<packaging>jar</packaging>
 
 	<name>Export CSV</name>
