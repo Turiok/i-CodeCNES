@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>fr.cnes.icode.repository</artifactId>
-    <version>5.0.0</version>
     <packaging>eclipse-repository</packaging>
 
 
