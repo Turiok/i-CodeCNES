@@ -94,19 +94,19 @@
                                         <include name="**/target/*.jar" />
                                         <exclude name="**/target/original-*.jar" />
                                         <exclude name="**/target/*-shaded.jar" />
-                                        <exclude name="icode-core/target/*.jar"/>
-                                        <exclude name="icode-library/target/*.jar"/>
-                                        <exclude name="icode-app/target/*.jar"/>
+                                        <exclude name="icode-core/target/*.jar" />
+                                        <exclude name="icode-library/target/*.jar" />
+                                        <exclude name="icode-app/target/*.jar" />
                                     </fileset>
                                 </copy>
                                 <copy todir="${basedir}/target/icode" overwrite="true" flatten="true">
-                                    <fileset dir="${basedir}" includes="*.jar" >
+                                    <fileset dir="${basedir}" includes="*.jar">
                                         <include name="src/main/scripts/*" />
                                         <include name="target/*.jar" />
                                     </fileset>
                                 </copy>
                                 <zip destfile="target/icode-${project.version}.zip">
-                                    <zipfileset dir="${basedir}/target/icode" prefix="icode"/>
+                                    <zipfileset dir="${basedir}/target/icode" prefix="icode" />
                                 </zip>
                             </target>
                         </configuration>

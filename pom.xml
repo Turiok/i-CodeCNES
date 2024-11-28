@@ -69,22 +69,20 @@
     </distributionManagement>
 
     <properties>
-        <icode.version>5.0.0</icode.version>
         <project.java.version>1.8</project.java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.surfire.version>2.22.2</maven.surfire.version>
-        <junit.jupiter.version>5.6.0</junit.jupiter.version>
-        <jacoco.version>0.8.4</jacoco.version>
+        <maven.scm.plugin.version>2.1.0</maven.scm.plugin.version>
+        <tycho-version>1.4.0</tycho-version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <version>5.6.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -111,8 +109,34 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho-version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:${maven.scm.plugin.version}:add org.apache.maven.plugins:maven-scm-plugin:${maven.scm.plugin.version}:checkin</preparationGoals>
+                    <completionGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho-version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:${maven.scm.plugin.version}:add org.apache.maven.plugins:maven-scm-plugin:${maven.scm.plugin.version}:checkin</completionGoals>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <executions>
+                  <execution>
+                    <id>default-cli</id>
+                    <goals>
+                      <goal>add</goal>
+                      <goal>checkin</goal>
+                    </goals>
+                    <configuration>
+                      <includes>**/META-INF/MANIFEST.MF,**/feature.xml,**/*.product,**/category.xml</includes>
+                      <excludes>**/target/**</excludes>
+                    <message>Changing the version of the Eclipse file to reflect the pom versions for the release</message>
+                    </configuration>
+                  </execution>
+                </executions>
+              </plugin>
+            <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surfire.version}</version>
+                <version>2.22.2</version>
                 <groupId>org.apache.maven.plugins</groupId>
                 <configuration>
                     <forkCount>0</forkCount>
@@ -121,7 +145,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
+                <version>0.8.4</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -162,6 +186,46 @@
                 </executions>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.3</version>
+                  </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>${maven.scm.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-versions-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-p2-director-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+                <plugin>
+                    <!-- enable tycho build extension -->
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-maven-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-compiler-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>target-platform-configuration</artifactId>
+                    <version>${tycho-version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>

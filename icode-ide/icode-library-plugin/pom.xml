@@ -14,7 +14,7 @@
     <packaging>eclipse-plugin</packaging>
 
     <properties>
-        <icode.library>${project.build.directory}/lib/icode-library-${icode.version}.jar</icode.library>
+        <icode.library>${project.build.directory}/lib/icode-library-${project.version}.jar</icode.library>
     </properties>
 
     <build>

@@ -15,25 +15,18 @@
 
     <name>i-Code CNES IDE</name>
 
-    <properties>
-        <tycho-version>1.4.0</tycho-version>
-    </properties>
-
-
     <build>
         <plugins>
             <plugin>
                 <!-- enable tycho build extension -->
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>tycho-maven-plugin</artifactId>
-                <version>${tycho-version}</version>
                 <extensions>true</extensions>
             </plugin>
 
             <plugin>
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>tycho-compiler-plugin</artifactId>
-                <version>${tycho-version}</version>
                 <configuration>
                     <compilerArgument>-warn:none</compilerArgument>
                     <compilerArgument>-err:none</compilerArgument>
@@ -43,8 +36,6 @@
             <plugin>
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>target-platform-configuration</artifactId>
-                <version>${tycho-version}</version>
-
                 <configuration>
                     <target>
                         <artifact>
@@ -82,6 +73,7 @@
                     </environments>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
