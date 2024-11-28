@@ -5,11 +5,10 @@
     <parent>
         <groupId>fr.cnes.icode</groupId>
         <artifactId>icode-ide</artifactId>
-        <version>5.1.0</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>fr.cnes.icode.tp</artifactId>
     <packaging>eclipse-target-definition</packaging>
-    <version>4.7-SNAPSHOT</version>
 
 </project>
