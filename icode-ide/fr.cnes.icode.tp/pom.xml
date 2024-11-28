@@ -10,6 +10,5 @@
 
     <artifactId>fr.cnes.icode.tp</artifactId>
     <packaging>eclipse-target-definition</packaging>
-    <version>4.7-SNAPSHOT</version>
 
 </project>
