@@ -1,14 +1,14 @@
 ![i-Code logo](https://github.com/cnescatlab/i-CodeCNES/blob/master/img/logo-i-code-cnes.png)
 
 [![Java CI](https://github.com/cnescatlab/sonar-cnes-report/actions/workflows/java-continuous-integration.yml/badge.svg)](https://github.com/cnescatlab/i-CodeCNES/actions/workflows/java-continuous-integration.yml)
-[![SonarQube Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=lequal_i-CodeCNES&metric=alert_status)](https://sonarcloud.io/dashboard?id=lequal_i-CodeCNES)
-[![SonarQube Bugs](https://sonarcloud.io/api/project_badges/measure?project=lequal_i-CodeCNES&metric=bugs)](https://sonarcloud.io/project/issues?id=lequal_i-CodeCNES&resolved=false&types=BUG)
-[![SonarQube Coverage](https://sonarcloud.io/api/project_badges/measure?project=lequal_i-CodeCNES&metric=coverage)](https://sonarcloud.io/component_measures?id=lequal_i-CodeCNES&metric=Coverage)
-[![SonarQube Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=lequal_i-CodeCNES&metric=sqale_index)](https://sonarcloud.io/component_measures?id=lequal_i-CodeCNES&metric=Maintainability)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Turiok_i-CodeCNES&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Turiok_i-CodeCNES)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Turiok_i-CodeCNES&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Turiok_i-CodeCNES)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Turiok_i-CodeCNES&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Turiok_i-CodeCNES)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Turiok_i-CodeCNES&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Turiok_i-CodeCNES)
 
 i-Code CNES is a static code analysis tool to help developers write code compliant with CNES coding rules for Fortran 77 and Fortran 90 .
 
-All the information on CNES standards coverage, and rules availabilities and limitations can be read in the [documentation](https://github.com/cnescatlab/i-CodeCNES/wiki). 
+All the information on CNES standards coverage, and rules availabilities and limitations can be read in the [documentation](https://github.com/cnescatlab/i-CodeCNES/wiki).
 
 ## Quick start
 - Download latest i-Code version on [GitHub Releases](https://github.com/cnescatlab/i-CodeCNES/releases).
@@ -152,7 +152,7 @@ If you need to add some new feature, the easiest way is to implment your own plu
 #### Release 3.1.0
 
 ###### New features
-* New command line #133 
+* New command line #133
 * New parsing error handling, a violation named "Parser error" is added instead of suspend the analysis. #154
 * New rules (Shell)
   * COM.DATA.Initialisation ( fix #113 )
@@ -165,26 +165,26 @@ If you need to add some new feature, the easiest way is to implment your own plu
   * COM.PRES.LengthLine ( fix #120 )
   * SH.FLOW.CheckCodeReturn ( fix #121 )
   * SH.Ref.Export ( fix #122 #52 #138 #137 )
-  * SH.SYNC.Signals #123 
+  * SH.SYNC.Signals #123
 * New metrics
   * SH.MET.LineOfComment
   * F77.MET.LineOfComment
   * F90.MET.LineOfComment
 
-###### Fixes 
-* Shell 
+###### Fixes
+* Shell
   * All checkers :
     * Function correction on FUNCSTART and FNAME #138 #137 #150
-  * COM.FLOW.CaseSwitch : 
+  * COM.FLOW.CaseSwitch :
     * Case handling fixed #135
     * Function localization fixed #52
   * COM.DATA.LoopCondition
     * Function localization fixed #52
   * COM.DESIGN.ActiveWait
     * Function localization fixed #52
-  * COM.FLOW.Abort 
+  * COM.FLOW.Abort
     * Function localization fixed #52
-  
+
 #### Release 3.0.1
 
 * Fix of Eclipse's plug-in performances #101
@@ -192,25 +192,25 @@ If you need to add some new feature, the easiest way is to implment your own plu
 #### Release 3.0.0
 
 ###### New features
-* Command line for Windows, MacOS & Linux #64 
-* Standalone version i-Code CNES IDE #1 
-* New Extension Points  
-  * To add languages #32   
-  * To add checkers #23   
-  * To add configurations   
-  * To add exports #19 #26 
-* API  
-  * To run analysis #16   
-  * To export analysis #19  #26   
-  * To reach configurations & preferences 
-* Shells metrics (*SH.MET.LineOfCode*, *SH.MET.RatioComment*, *SH.MET.Nesting*, *SH.MET.ComplexitySimplified*) #30 
+* Command line for Windows, MacOS & Linux #64
+* Standalone version i-Code CNES IDE #1
+* New Extension Points 
+  * To add languages #32  
+  * To add checkers #23  
+  * To add configurations  
+  * To add exports #19 #26
+* API 
+  * To run analysis #16  
+  * To export analysis #19  #26  
+  * To reach configurations & preferences
+* Shells metrics (*SH.MET.LineOfCode*, *SH.MET.RatioComment*, *SH.MET.Nesting*, *SH.MET.ComplexitySimplified*) #30
 * Automated build #1
 
 ###### Bug fixes & enhancements
-* Analysis performances improvements  #14 
-* User Interface preference page improvements  #36 
-* Improvements of analysis failure notifications #50 
-* XML and CSV export improvements #69  #19 
+* Analysis performances improvements  #14
+* User Interface preference page improvements  #36
+* Improvements of analysis failure notifications #50
+* XML and CSV export improvements #69  #19
 
 *Minor fixes and other enhancements : [milestone 3.0.0](https://github.com/cnescatlab/i-CodeCNES/milestone/1).*
 
@@ -223,7 +223,7 @@ If you need to add some new feature, the easiest way is to implment your own plu
 
 
 ### Feedback and Support
-Bugs and feature requests: https://github.com/cnescatlab/i-CodeCNES/issues 
+Bugs and feature requests: https://github.com/cnescatlab/i-CodeCNES/issues
 
 ### How to contribute
 If you experienced a problem with the plugin please open an issue. Inside this issue please explain us how to reproduce this issue and paste the log.
