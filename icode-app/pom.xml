@@ -85,7 +85,7 @@
                 <executions>
                     <execution>
                         <id>copy</id>
-                        <phase>install</phase>
+                        <phase>package</phase>
                         <configuration>
                             <target>
                                 <echo>Preparing i-Code CNES application distribution...</echo>
